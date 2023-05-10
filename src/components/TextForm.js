@@ -4,19 +4,23 @@ export default function TextForm(props) {
     // console.log("uppercase was clicked" + text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to UpperCase.","success")
   };
   const handleLowClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to LowerCase.","success")
   };
   const speak = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
     window.speechSynthesis.speak(msg);
+    props.showAlert("Spoken.","success")
   }
   const handleClearClick = () => {
     let newText = '';
     setText(newText);
+    props.showAlert("Cleared the Text.","success")
   };
   const handleOnChange = (event) => {
     // console.log("On changed");
@@ -26,6 +30,7 @@ export default function TextForm(props) {
     let text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to Clipboard.","success")
   }
   const [text, setText] = useState("");
   // text =" new text" wrong way to change the state
