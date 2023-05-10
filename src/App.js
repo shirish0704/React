@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 // import About from "./components/About";
 import TextForm from "./components/TextForm";
+import Alert from "./components/Alert";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <>
       <Navbar title="Textutils" mode={mode} toggleMode={toggleMode}/>
       {/* <Navbar /> */}
+      <Alert alert="this id alert"/>
       <div className="container my-3">
       <TextForm heading="Enter the text to analyze below." mode={mode}/>
       {/* <About/> */}
